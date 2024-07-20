@@ -7,7 +7,7 @@ Fig1C_DEGfunctions.txt
 GeneCountData.csv
 RNASeqMetadata.csv
 mart_exportensemblChr37moreinfo.txt
-Human__hsapiens_gene_ensembl.db
+Human__hsapiens_gene_ensembl.db   <-too large to provide via GitHub. This file is from ensembl.
 
 Supplemental Figure 1 &2:
 Fig1BSupplFig1_iDEP_customized_R_code.R
