@@ -1158,10 +1158,10 @@ MDSplot <- function(dimen1, dimen2) {  # MDS
 	
 
 	if(is.null(readSampleInfo.out)) { 
-	p=ggplot(pcaData, aes(dim1, dim2, fill=Sample_Name, shape = Sample_Name)) + geom_point(size=5,color="black") 
+	p=ggplot(pcaData, aes(dim1, dim2, fill=Sample_Name, shape = Sample_Name)) + geom_point(size=7,color="black") 
 	} else {
 		pcaData = cbind(pcaData,readSampleInfo.out )
-		p=ggplot(pcaData, aes_string(as.character(dim1),as.character(dim2), fill=input_selectFactors,shape=input_selectFactors2,color=input_selectFactors)) + stat_ellipse()+geom_point(size=5,color="black") 
+		p=ggplot(pcaData, aes_string(as.character(dim1),as.character(dim2), fill=input_selectFactors,shape=input_selectFactors2,color=input_selectFactors)) + stat_ellipse()+geom_point(size=7,color="black") 
 		}
 	p=p+xlab(paste("Dimension ",as.character(dimen1),sep="")) +
 	  scale_color_manual(values=c("gold","orchid1","purple2"))+

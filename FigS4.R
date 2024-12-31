@@ -52,7 +52,8 @@ batchedgenematrix<-removeBatchEffect(genematrix,batch = mybatch,design = mydesig
 mymatrix<-batchedgenematrix  #genematrix is the uncorrected matrix
 
 #for the heatmap plot, rescale the expression values
-myX<- t(scale(t(mymatrix),center=TRUE,scale=TRUE))
+myX<- t(scale(t(mymatrix),center=TRUE,scale=TRUE)) #scale works on the columns; here the columns are samples and the heatmap will have the samples as columns
+#so to compared across metabolites, transpose, do scale, then transpose back
 
 #get the number of clusters
 kmean_withinss <- function( k) {

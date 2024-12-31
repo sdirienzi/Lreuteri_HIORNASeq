@@ -7,7 +7,7 @@
 ##########################
 # 1. Read data
 ########################## 
-source('iDEP_core_functions.R') 
+source('Fig1BSupplFig1_iDEP_core_functions.R') 
 library("Polychrome")
 library("ggplot2")
 library("gridExtra")
@@ -47,7 +47,6 @@ library("gridExtra")
  #nGenesFilter()  
  convertedCounts.out <- convertedCounts()  # converted counts, just for compatibility  #save this to do DEseq2 outside of 
  #readCountsBias()  # detecting bias in sequencing depth 
-# write.table( convertedCounts.out, file="convertedreadcounts010320.txt",sep="\t",quote=FALSE)
 write.table( convertedData.out, file="convertedrlogcounts.txt",sep="\t",quote=FALSE)
  
  
@@ -293,9 +292,16 @@ grid.arrange(geneplots[[1]],geneplots[[2]],geneplots[[3]],geneplots[[4]],geneplo
  PCAplot()	
 
  #Fig 1B
-# pdf(file="")
+ pdf(file="RNASeq_MDSplot.pdf",width=9, height=9)
  MDSplot("1","2")   #use # of dimension you are interested in; can plot up to dim4
- #dev.off()
+ dev.off()
+ ## calculate the percentage of variation that each MDS axis accounts for...
+ fit = cmdscale( dist(t(convertedData.out) ), eig=T, x.ret=TRUE,k=4)
+ mds.var.per <- round(fit$eig/sum(fit$eig)*100, 1)
+ mds.var.per. #shows the percent variation for each dimension
+# [1] 72.1 13.0  3.1  1.9  1.5  1.4  0.9  0.7  0.5  0.4  0.4  0.3  0.3  0.3  0.3  0.3  0.3  0.2  0.2  0.2  0.2  0.2  0.2  0.2  0.2  0.2  0.2  0.2  0.1  0.0
+
+ 
  tSNEplot()  
  
  #do permanova on induction state; PMA; treatments
@@ -305,13 +311,25 @@ grid.arrange(geneplots[[1]],geneplots[[2]],geneplots[[3]],geneplots[[4]],geneplo
  library("phyloseq")
  library("Biostrings")
  
+ 
  dm<-as.data.frame(t(convertedData.out))
  metadata<-as.data.frame(readSampleInfo.out)  
  
- #mappingfile<-import_qiime_sample_data('metadatafixednoPMA.csv')
+ 
+ #delete this 
+ # otumatrix<-dm[complete.cases(dm), ]
+ # sampletable<-otu_table(otumatrix,taxa_are_rows=FALSE)
+ # samplemetadata<-sample_data(metadata)
+ # sample_names(samplemetadata)<-row.names(samplemetadata)
 
-# map<-merge_phyloseq(dm, mappingfile)
- #jac<-ordinate(map, method="PCoA","jaccard")
+ #delete this
+ # map<-merge_phyloseq(dm, sampletable)
+ # jac<-ordinate(map, method="PCoA","jaccard")
+ # plot_ordination(map ,jac) 
+ # ordplotJac<-plot_ordination(map ,jac, justDF=TRUE )
+ # ordtable_Jac<-as.data.frame(ordplotJac)
+ 
+
  
  
  #for the libraries:
