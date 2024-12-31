@@ -60,6 +60,25 @@ Supplemental Figure 6:
 Fig4GHIFigS6B.R
 Fig4FGHIFigS6B.txt
 
+Figure 5
+Fig5FigS7.R
+Fig5FigS7FoldChangeData.txt
+Fig5FigS7MediaBatchnormImputedData_NoMalateOrFumarate.txt
+Fig5FigS7MediaBatchnormImputedData.txt
+Fig5FigS7metadata.txt
+Fig5HeatMapMetabolites.txt
+Fig5MediaBatchnormData.txt
+Fig5metabolitemetadata.txt
+
+Supplemental Figure 7
+Fig5FigS7.R
+Fig5FigS7FoldChangeData.txt
+Fig5FigS7MediaBatchnormImputedData_NoMalateOrFumarate.txt
+Fig5FigS7MediaBatchnormImputedData.txt
+Fig5FigS7metadata.txt
+FigS7correlationplotstats.txt
+FigS7meandifferences.txt
+
 
 
 
